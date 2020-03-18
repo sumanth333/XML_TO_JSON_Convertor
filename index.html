@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US" style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XML to JSON Converter</title>
+
+<body>
+<script src="./xml2json.js"> </script>
+
+<h1 align="center">XML to Json Converter</h1>
+
+<textarea id="input" placeholder="Place your XML input here..." rows="37" cols="90" style= "margin-left: 50px;" ></textarea>
+<button type="button" style= "position: absolute; top: 50%;" onclick="input()">CONVERT</button>
+<textarea id="output" rows="37" cols="90" style= "margin-left: 85px;" placeholder="your output is shown here after you click convert button..."></textarea>
+<script> 
+function input() {
+	
+	var inputVal = document.getElementById("input").value;
+	var XmlNode = new DOMParser().parseFromString(inputVal.replace(/(\r\n|\n|\r)/gm, ""), 'text/xml');
+
+
+	var output = xmlToJson(XmlNode);
+	console.log(output);
+	printOutput(output);
+}
+</script>
+</body>
+
+</html>
